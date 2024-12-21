@@ -1,0 +1,52 @@
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.prawn-spinner {
+  position: relative;
+  width: var(--spinner-size, 96px);
+  height: var(--spinner-size, 96px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prawn-spinner__ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotate var(--rotation-duration, 2.5s) linear infinite;
+}
+
+.prawn-spinner__prawn {
+  position: absolute;
+  width: calc(var(--spinner-size, 96px) * 0.25);
+  height: calc(var(--spinner-size, 96px) * 0.25);
+  color: var(--prawn-color);
+  animation: pulse 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.prawn-spinner__prawn:nth-child(1) { --prawn-color: #FF9A8B; }
+.prawn-spinner__prawn:nth-child(2) { --prawn-color: #7EB6BC; }
+.prawn-spinner__prawn:nth-child(3) { --prawn-color: #5FA8A3; }
+
+@media (max-width: 768px) {
+  .prawn-spinner {
+    --spinner-size: 64px;
+  }
+}

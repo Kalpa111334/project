@@ -1,0 +1,46 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+.spinner-container {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.spinner-container.exit {
+  animation: fadeOut 0.3s ease-in forwards;
+}
+
+.spinner {
+  animation: spin var(--rotation-speed) linear infinite;
+}
+
+.spinner-text {
+  animation: fadeIn 0.5s ease-out 0.2s both;
+}
